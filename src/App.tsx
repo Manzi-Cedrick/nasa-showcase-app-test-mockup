@@ -1,12 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState ,useMemo} from 'react';
+import { Routes, Route } from 'react-router-dom'
+import BlogPage from './screens/BlogPage';
+import { SearchContext } from './SearchContext';
 function App() {
+  const [searchText, setSearchText] = useState('')
+  const [data,setData] = useState(null)
+  const valueContext = useMemo(() => ({searchText,setSearchText,data,setData}),[searchText,setSearchText,data,setData])
   return (
-    <div>
-      <h1>Welcome to Nasa Application </h1>
-    </div>
+    <SearchContext.Provider value={valueContext}>
+      <Routes>
+        <Route path='/' element={<BlogPage />} />
+      </Routes>
+    </SearchContext.Provider>
   );
 }
 
