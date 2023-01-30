@@ -3,16 +3,9 @@ import { SearchContext } from '../SearchContext';
 
 const SearchComponent = () => {
     const [text,setText] = useState<string>('');
-    const {data,setData,searchText,setSearchText} = useContext(SearchContext)
+    const {dataSearch,setDataSearch,searchText,setSearchText} = useContext(SearchContext)
     const handleSubmit = async () => {
         setSearchText(text)
-        if (searchText === ''){
-            const response = await fetch(`https://images-api.nasa.gov/search?q=${text}`);
-            const datas = await response.json();
-            setData(datas)
-            console.log("The Data",data)
-        }
-        // console.log("The found data:",data)
     };
     
   return (

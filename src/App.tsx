@@ -4,8 +4,8 @@ import BlogPage from './screens/BlogPage';
 import { SearchContext } from './SearchContext';
 function App() {
   const [searchText, setSearchText] = useState('')
-  const [data,setData] = useState(null)
-  const valueContext = useMemo(() => ({searchText,setSearchText,data,setData}),[searchText,setSearchText,data,setData])
+  const [dataSearch,setDataSearch] = useState({});
+  const valueContext = useMemo(() => ({searchText,setSearchText,dataSearch,setDataSearch}),[searchText,setSearchText,dataSearch,setDataSearch])
   return (
     <SearchContext.Provider value={valueContext}>
       <Routes>
